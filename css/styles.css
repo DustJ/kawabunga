@@ -241,6 +241,10 @@ nav .content-container .nav-right .nav-right__links a {
 section.hero {
   background-image: radial-gradient(circle, #003254, #002e50, #002b4c, #002748, #002444, #002141, #001f3d, #001c3a, #001936, #001732, #00132f, #00102b);
   padding-block: var(--spacing-lg);
+  margin-top: -1px;
+}
+section.hero .content-container {
+  gap: var(--spacing-sm);
 }
 section.hero .content-container .logo-hammer {
   align-content: start;
