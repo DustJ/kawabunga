@@ -10,7 +10,6 @@
  * 9: Legal sub-footer */
 /* To-do:
  * 3: figure out how much nav is needed for Kawabunga
- * 5: card title font scaling
  * 5: card height at tablet width
  * 8: footer right nav tablet size looks bad */
 /* ====================================================================================
@@ -26,7 +25,7 @@
   --color-secondary-light: hsl(210, 44%, 67%);
   --color-accent: hsl(163, 100%, 75%);
   --color-accent-dark: hsl(163, 100%, 65%);
-  --color-accent-light: hsl(163, 95%, 80%);
+  --color-accent-light: hsl(163, 100%, 85%);
   --color-accent-accessible: hsl(177, 100%, 26%);
   --color-accent-accessible-dark: hsl(177, 100%, 16%);
   --color-accent-accessible-light: hsl(177, 95%, 30%);
@@ -53,6 +52,7 @@
   --content-min-width: 23.44rem;
   --content-max-width: 66rem;
   --spacing-sm: 1rem;
+  --spacing-xxs: calc(var(--spacing-sm) / 4);
   --spacing-xs: calc(var(--spacing-sm) / 2);
   --spacing-md: calc(var(--spacing-sm) * 2);
   --spacing-lg: calc(var(--spacing-sm) * 4);
@@ -173,9 +173,10 @@ img {
  * ===================================================================================== */
 .promo-banner {
   background-color: var(--color-primary);
-  padding-block: var(--spacing-xs);
+  padding-block: var(--spacing-xs) var(--spacing-xxs);
 }
 .promo-banner .content-container {
+  font-size: 0.75rem;
   justify-items: center;
 }
 @media only screen and (min-width: 768px) {
@@ -192,15 +193,19 @@ img {
 nav {
   background-color: var(--color-primary);
   display: grid;
-  padding-bottom: var(--spacing-xs);
+  padding-block: var(--spacing-xxs) var(--spacing-xs);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 nav .content-container {
+  align-items: center;
   gap: var(--spacing-sm);
   grid-auto-flow: row;
   justify-content: center;
+}
+nav .content-container .nav-left .nav-left__logo {
+  height: 3.33rem;
 }
 nav .content-container .nav-right {
   align-items: start;
@@ -251,8 +256,15 @@ section.hero .content-container .logo-hammer a {
   color: var(--color-accent);
   padding: var(--spacing-sm) var(--spacing-md);
 }
+section.hero .content-container .logo-hammer a i {
+  margin-right: var(--spacing-xxs);
+  transition: margin-right var(--animation-ease-out);
+}
 section.hero .content-container .logo-hammer a:hover {
   color: var(--color-accent-light);
+}
+section.hero .content-container .logo-hammer a:hover i {
+  margin-right: 0;
 }
 section.hero .content-container .slogan {
   container-type: inline-size;
@@ -296,9 +308,10 @@ section.hero .content-container .slogan h1 .third-line {
  * 5: Home page CTA block
  * ===================================================================================== */
 section.cta-block {
-  padding-block: var(--spacing-md) var(--spacing-lg);
+  padding-block: var(--spacing-lg);
 }
 section.cta-block .content-container {
+  container-type: inline-size;
   max-width: 20rem;
 }
 section.cta-block .content-container .cta-block__lead-magnet {
@@ -306,7 +319,7 @@ section.cta-block .content-container .cta-block__lead-magnet {
 }
 section.cta-block .content-container .cta-block__lead-magnet .cta-block__lead-magnet-title {
   color: var(--color-primary);
-  font-size: 2rem;
+  font-size: clamp(0.5rem, 4cqi + 1rem, 2rem);
   line-height: 1.15;
 }
 section.cta-block .content-container .cta-block__lead-magnet .cta-block__lead-magnet-title .cta-block__lead-magnet-title-first-line {
@@ -319,15 +332,20 @@ section.cta-block .content-container .cta-block__lead-magnet .cta-block__lead-ma
 section.cta-block .content-container .cta-block__lead-magnet .cta-block__cta-card {
   background-color: var(--color-primary);
   border-radius: var(--border-radius);
-  border: 1px solid cyan;
+  height: 100cqi;
   margin-top: var(--spacing-sm);
-  max-height: 18rem;
   padding-inline: var(--spacing-sm);
+}
+section.cta-block .content-container .cta-block__lead-magnet .cta-block__cta-card .cta-card__image {
+  height: auto;
+  width: 100%;
 }
 section.cta-block .content-container .cta-block__lead-magnet .cta-block__cta-card .cta-card__image img {
   filter: grayscale(1);
+  height: 100%;
   transform: scale(0.9);
   transition: transform var(--animation-ease-out), filter var(--animation-ease-out);
+  width: 100%;
 }
 section.cta-block .content-container .cta-block__lead-magnet .cta-block__cta-card .cta-card__image:hover {
   cursor: pointer;
@@ -341,11 +359,16 @@ section.cta-block .content-container .cta-block__lead-magnet .cta-block__cta-car
     grid-template-columns: repeat(3, 1fr);
     max-width: var(--content-max-width);
   }
+  section.cta-block .content-container .cta-block__lead-magnet .cta-block__lead-magnet-title {
+    font-size: clamp(0.5rem, 3cqi + 0.1rem, 2rem);
+  }
+  section.cta-block .content-container .cta-block__lead-magnet .cta-block__cta-card {
+    height: calc((100cqi - var(--spacing-md) * 2) / 3);
+  }
 }
 
 .cta-block.cta-block__home {
   background: var(--color-bg-light);
-  background: linear-gradient(180deg, var(--color-bg-light) 85%, var(--color-bg-lighter) 85%);
 }
 @media only screen and (min-width: 768px) {
   .cta-block.cta-block__home {
@@ -357,7 +380,7 @@ section.cta-block .content-container .cta-block__lead-magnet .cta-block__cta-car
  * 6: Content (2-column content)
  * ===================================================================================== */
 section.content {
-  padding-block: var(--spacing-lg);
+  padding-block: calc(var(--spacing-sm) + var(--spacing-lg)) var(--spacing-lg);
 }
 
 .two-col {
@@ -367,6 +390,7 @@ section.content {
 }
 .two-col .img-col {
   max-width: 20rem;
+  padding-inline: var(--spacing-md) 0;
   position: relative;
 }
 .two-col .img-col img {
@@ -375,12 +399,12 @@ section.content {
 .two-col .img-col::before {
   background: var(--color-primary);
   border-radius: var(--border-radius);
-  bottom: calc(2 * var(--spacing-sm));
+  bottom: var(--spacing-md);
   content: "";
   position: absolute;
-  left: calc(-2 * var(--spacing-sm));
-  right: calc(-2 * var(--spacing-sm));
-  top: calc(-2 * var(--spacing-sm));
+  left: 0;
+  right: calc(1 * var(--spacing-md));
+  top: calc(-1 * var(--spacing-md));
   z-index: -1;
 }
 .two-col .content-col h1, .two-col .content-col h2, .two-col .content-col h3, .two-col .content-col h4, .two-col .content-col h5 {
@@ -394,13 +418,14 @@ section.content {
     grid-template-columns: 1fr 2fr;
   }
   .two-col .img-col {
+    padding-inline: var(--spacing-md);
     max-width: none;
   }
   .two-col .img-col::before {
-    bottom: calc(2 * var(--spacing-sm));
-    left: calc(-2 * var(--spacing-sm));
-    right: calc(2 * var(--spacing-sm));
-    top: calc(-2 * var(--spacing-sm));
+    bottom: var(--spacing-md);
+    left: 0;
+    right: var(--spacing-lg);
+    top: calc(-1 * var(--spacing-md));
   }
   .two-col .content-col h1, .two-col .content-col h2, .two-col .content-col h3, .two-col .content-col h4, .two-col .content-col h5 {
     text-align: left;
@@ -412,8 +437,8 @@ section.content {
     grid-template-columns: 2fr 1fr;
   }
   .two-col.order-reverse .img-col::before {
-    left: calc(2 * var(--spacing-sm));
-    right: calc(-2 * var(--spacing-sm));
+    left: var(--spacing-lg);
+    right: 0;
   }
   .two-col.order-reverse .content-col {
     order: -1;
@@ -448,6 +473,9 @@ footer .content-container {
 }
 footer .content-container .footer-left {
   min-width: 130px;
+}
+footer .content-container .footer-left .footer-left__logo {
+  height: 3.33rem;
 }
 footer .content-container .footer-right {
   display: grid;
