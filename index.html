@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="theme-color" content="hsl(218, 100%, 8%)" />
     <meta name="robots" content="noindex" />
-    <title>🌊🏄‍♂️ Kawabunga</title>
+    <title>🌊🏄‍♂️ ThorScore</title>
     <link href="css/styles.css" rel="stylesheet" type="text/css" />
     <link
       rel="stylesheet"
@@ -21,34 +21,73 @@
     <nav>
       <div class="content-container">
         <div class="nav-left">
-          <img
-            class="nav-left__logo"
-            src="images/kawabunga-logo-light.svg"
-            alt="kawabunga logo"
-          />
+          <a href="/index.html">
+            <img
+              class="nav-left__logo"
+              src="images/thorscore-logo-light.svg"
+              alt="ThorScore logo"
+            />
+          </a>
         </div>
         <div class="nav-right">
-          <a href="#" class="cta-button">Get Started</a>
+          <div class="nav-right__links">
+            <a href="/whythorscore.html">Why ThorScore</a>
+            <a href="#get-started" class="cta-button">Get Started</a>
+          </div>
         </div>
       </div>
     </nav>
 
-    <section class="hero">
+    <section class="hero homepage-hero">
       <div class="content-container">
         <div class="slogan">
           <h1>
             <span class="first-line">Because</span
             ><span class="second-line">low cash flow</span
-            ><span class="third-line">sucks</span>
+            ><span class="third-line">can suck</span>
           </h1>
         </div>
         <div class="logo-hammer">
-          <img src="images/kawabunga-logomark.svg" alt="kawabunga Hammer" />
-          <a href="#"><i class="fa-solid fa-circle-play"></i> Watch video</a>
+          <img
+            src="images/thorscore-website-hammer.svg"
+            alt="ThorScore Hammer"
+          />
+          <a class="homepage-hero__video-play-link"
+            ><i class="fa-solid fa-circle-play"></i> Watch video</a
+          >
         </div>
+        <dialog class="homepage-hero__video-modal">
+          <i
+            class="fa-solid fa-xmark homepage-hero__video-close-link"
+            aria-label="Close"
+          ></i>
+          <iframe
+            id="homepageHeroVideo"
+            class="video__aspect-ratio"
+            src="https://www.youtube.com/embed/jgm58cbu0kw?si=se146putWrcrexIW"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+          <div class="homepage-hero__video-links">
+            <a
+              href="https://thorscore.ck.page/1f5a9ac866"
+              target="_blank"
+              class="cta-button"
+              >White Paper 1</a
+            >
+            <a
+              href="https://thorscore.ck.page/1f5a9ac866"
+              target="_blank"
+              class="cta-button"
+              >White Paper 2</a
+            >
+          </div>
+        </dialog>
       </div>
     </section>
-    <section class="cta-block cta-block__home">
+    <section class="cta-block cta-block__home" id="get-started">
       <div class="content-container">
         <div class="cta-block__lead-magnet">
           <div class="cta-block__lead-magnet-title">
@@ -59,10 +98,12 @@
           </div>
           <div class="cta-block__cta-card">
             <div class="cta-card__image">
-              <img
-                src="images/business-man-young.webp"
-                alt="Young businessman"
-              />
+              <a href="https://thorscore.ck.page/1f5a9ac866" target="_blank">
+                <img
+                  src="images/business-man-young.webp"
+                  alt="Young businessman"
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -75,10 +116,9 @@
           </div>
           <div class="cta-block__cta-card">
             <div class="cta-card__image">
-              <img
-                src="images/business-man-young.webp"
-                alt="Young businessman"
-              />
+              <a href="https://thorscore.ck.page/1f5a9ac866" target="_blank"
+                ><img src="images/business-woman.webp" alt="Young businessman"
+              /></a>
             </div>
           </div>
         </div>
@@ -91,10 +131,12 @@
           </div>
           <div class="cta-block__cta-card">
             <div class="cta-card__image">
-              <img
-                src="images/business-man-young.webp"
-                alt="Young businessman"
-              />
+              <a href="https://thorscore.ck.page/1f5a9ac866" target="_blank">
+                <img
+                  src="images/business-man-experienced.webp"
+                  alt="Young businessman"
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -104,21 +146,26 @@
       <div class="content-container">
         <div class="two-col">
           <div class="img-col">
-            <img src="https://placehold.co/400x400" alt="kawabunga logo" />
+            <a href="https://thorscore.ck.page/1f5a9ac866" target="_blank"
+              ><img src="https://placehold.co/400x400" alt="LEADMAGNETIMAGE"
+            /></a>
           </div>
           <div class="content-col">
             <h3>Level 3 Heading</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat,
-              error quod aliquam assumenda asperiores ipsa deserunt consequuntur
-              libero corrupti, necessitatibus eius praesentium officiis ullam
-              quasi eos perferendis voluptas modi facilis?
+              Lorem <a href="#">Link visibility check</a> ipsum dolor sit amet
+              consectetur adipisicing elit. Repellat, error quod aliquam
+              assumenda asperiores ipsa deserunt consequuntur libero corrupti,
+              necessitatibus eius praesentium officiis ullam quasi eos
+              perferendis voluptas modi facilis?
             </p>
           </div>
         </div>
         <div class="two-col order-reverse">
           <div class="img-col">
-            <img src="https://placehold.co/400x400" alt="kawabunga logo" />
+            <a href="https://thorscore.ck.page/1f5a9ac866" target="_blank"
+              ><img src="https://placehold.co/400x400" alt="LEADMAGNETIMAGE"
+            /></a>
           </div>
           <div class="content-col">
             <h3>Level 3 Heading</h3>
@@ -132,7 +179,9 @@
         </div>
         <div class="two-col">
           <div class="img-col">
-            <img src="https://placehold.co/400x400" alt="kawabunga logo" />
+            <a href="https://thorscore.ck.page/1f5a9ac866" target="_blank"
+              ><img src="https://placehold.co/400x400" alt="LEADMAGNETIMAGE"
+            /></a>
           </div>
           <div class="content-col">
             <h3>Level 3 Heading</h3>
@@ -150,7 +199,7 @@
       <div class="content-container">
         <div class="two-col split-evenly">
           <div class="content-col">
-            <h2>About kawabunga</h2>
+            <h2>About ThorScore</h2>
             <p>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               Praesentium nulla officiis quasi repellat odio neque impedit
@@ -159,7 +208,9 @@
             </p>
           </div>
           <div class="content-col">
-            <img src="https://placehold.co/558x314" alt="Video thumbnail" />
+            <a href="/whythorscore.html"
+              ><img src="https://placehold.co/558x314" alt="Video thumbnail"
+            /></a>
           </div>
         </div>
       </div>
@@ -167,24 +218,21 @@
     <footer>
       <div class="content-container">
         <div class="footer-left">
-          <img
-            class="footer-left__logo"
-            src="images/kawabunga-logo.svg"
-            alt="kawabunga logo"
-            height="60"
-            width="130"
-          />
+          <a href="/index.html">
+            <img
+              class="footer-left__logo"
+              src="images/thorscore-logo.svg"
+              alt="ThorScore logo"
+            />
+          </a>
         </div>
         <div class="footer-right">
           <div class="footer-right__nav-links">
-            <a href="#">More Cash</a>
-            <a href="#">More Profit</a>
-            <a href="#">Higher Valuation</a>
-            <a href="#">Why kawabunga</a>
-            <a href="#">Pricing</a>
-          </div>
-          <div class="footer-right__cta">
-            <a class="cta-button cta-button--dark" href="#">Get Started</a>
+            <a href="/index.html">Home</a>
+            <a href="/whythorscore.html">Why ThorScore</a>
+            <a class="cta-button cta-button--dark" href="#get-started"
+              >Get Started</a
+            >
           </div>
         </div>
       </div>
@@ -192,15 +240,16 @@
     <section class="legal">
       <div class="content-container">
         <div class="legal__links">
-          <a href="#">Terms</a><a href="#">Privacy</a>
+          <a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a>
         </div>
         <p>
-          &copy; kawabunga
+          &copy; ThorScore
           <script>
             document.write(new Date().getFullYear())
           </script>
         </p>
       </div>
     </section>
+    <script src="/js/core.js"></script>
   </body>
 </html>
