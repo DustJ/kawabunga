@@ -1,0 +1,656 @@
+/* TOC
+ 1: Global styles  
+ 2: Promo banner
+ 3: Primary nav
+ 4: Hero
+ 5: CTA block
+ 6: Content (2-column content)
+ 7: About us
+ 8: Footer
+ 9: Legal sub-footer
+
+/* To-do:
+ 1: CTA buttons on mobile are different widths
+
+
+/* ====================================================================================
+ 1: Global styles
+ =====================================================================================
+ @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap')
+
+\:root
+  --color-primary: hsl(218, 100%, 8%)
+  --color-primary-dark: hsl(218, 100%, 0%)
+  --color-primary-light: hsl(213, 80%, 33%)
+  --color-secondary: hsl(210, 100%, 66%)
+  --color-secondary-dark: hsl(210, 100%, 56%)
+  --color-secondary-light: hsl(210, 95%, 76%)
+  --color-accent: hsl(163, 100%, 75%)
+  --color-accent-dark: hsl(170, 100%, 40%)
+  --color-accent-light: hsl(163, 100%, 90%)
+  --color-accent-accessible: hsl(177, 100%, 26%)
+  --color-accent-accessible-dark: hsl(180, 100%, 23%)
+  --color-accent-accessible-light: hsl(177, 95%, 30%)
+  --color-link: hsl(218, 70%, 40%)
+  --color-link-hover: hsl(213, 60%, 50%)
+  --color-link-nav: hsl(222, 8%, 80%)
+  --color-link-nav-hover: var(--color-white)
+
+  --color-bg-lightest: hsl(222, 24%, 98%)
+  --color-bg-lighter: hsl(222, 26%, 95%)
+  --color-bg-light: hsl(222, 28%, 92%)
+  --color-bg-medium: hsl(240, 20%, 91%)
+  --color-bg-dark: hsl(240, 8%, 30%)
+  --color-bg-darker: hsl(240, 12%, 20%)
+  --color-bg-darkest: hsl(240, 16%, 10%)
+  --color-white: hsl(220, 0%, 100%)
+  --color-black: var(--color-primary)
+  --color-font-heading: var(--color-black)
+  --color-font-paragraph: hsl(240, 8%, 50%)
+  --color-shadow-dark: hsla(240, 58%, 18%, 0.32)
+  --color-shadow-light: hsla(240, 100%, 18%, 0.10)
+  --color-shadow-medium: hsla(240, 100%, 18%, 0.21)
+  --color-modal-backdrop: hsla(218, 100%, 8%, 0.95)
+  --color-gradient-primary: linear-gradient(90deg, var(--color-primary), var(--color-secondary))
+  --color-gradient-overlay-readability: linear-gradient(180deg, hsla(220, 27.3%, 97.8%, 0) 0%, hsla(220, 27.3%, 97.8%, 0.95) 80%)
+
+  --border: 1px solid var(--color-bg-light)
+  --border-radius: 0.5rem
+  --border-radius-sm: calc(var(--border-radius) / 2)
+  --border-radius-lg: calc(var(--border-radius) * 2)
+
+  --content-min-width: 23.44rem
+  --content-max-width: 66rem
+
+  --spacing-sm: 1rem
+  --spacing-xxs: calc(var(--spacing-sm) / 4)
+  --spacing-xs: calc(var(--spacing-sm) / 2)
+  --spacing-md: calc(var(--spacing-sm) * 2)
+  --spacing-lg: calc(var(--spacing-sm) * 4)
+  // --spacing-section: calc(var(--spacing-sm) * 3)
+  --spacing-nav-height: calc((var(--spacing-xs) * 2) + 60px)
+
+  --shadow-simple-sm: 0 0.25rem 0.5rem var(--color-shadow-light)
+  --shadow-simple-md: 0 0.5rem 2rem var(--color-shadow-light)
+  --shadow-centered-sm: 1rem 2rem 1rem -1.5rem var(--color-shadow-light), -1rem 2rem 1rem -1.5rem var(--color-shadow-light)
+  --shadow-centered-md: 2rem 2.5rem 1.5rem -2rem var(--color-shadow-medium), -2rem 2.5rem 1.5rem -2rem var(--color-shadow-medium)
+
+  --animation-hint: 0.2s cubic-bezier(.6,0,.3,1)
+  --animation-smooth: 0.4s cubic-bezier(.6,0,.3,1)
+  --animation-bounce: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+  --animation-ease-in: 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19)
+  --animation-ease-in-out: 0.15s cubic-bezier(0.645, 0.045, 0.355, 1)
+  --animation-ease-in-out-long: 0.4s cubic-bezier(0.645, 0.045, 0.355, 1)
+  --animation-ease-out: 0.2s cubic-bezier(0.215, 0.61, 0.355, 1)
+  --animation-ease-out-back: 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)
+
+  background-color: var(--color-bg-lighter)
+  color: var(--color-font-paragraph)
+  font-family: 'Roboto', sans-serif
+  font-size: 18px
+  letter-spacing: 0.012rem
+  line-height: 1.75
+
+  *
+    box-sizing: border-box
+
+    &::selection
+      background: var(--color-secondary-light)
+
+html, body
+  margin: 0
+  padding: 0
+  scroll-behavior: smooth
+  scroll-padding-top: var(--spacing-md)
+
+// Typography    
+h1, h2, h3, h4, h5
+  color: var(--color-font-heading)
+  font-family: 'Roboto', sans-serif
+  font-weight: 600
+  line-height: 1.15
+  margin: 0 0 1.05rem
+  // margin: 2.75rem 0 1.05rem
+p
+  margin-bottom: 1.15rem
+.eyebrow-headline
+  color: var(--color-primary)
+
+// Responsive heading type. Font scale = Major Thirds
+h1
+  font-size: clamp(2rem, calc(0.136rem + 9.880vw), 4.552rem)
+  margin-top: 0
+h2
+  font-size: clamp(1.8rem, calc(0.664rem + 2.368vw), 2.441rem)
+h3
+  font-size: clamp(1.6rem, calc(0.974rem + 1.3047vw), 1.953rem)
+h4
+  font-size: clamp(1.4rem, calc(1.111rem + 0.6021vw), 1.563rem)
+h5
+  font-size: clamp(1.2rem, calc(1.111em + 0.18473vw), 1.25rem)
+
+// Elements
+a:not(.cta-button)
+  color: var(--color-link)
+  text-decoration: none
+  transition: color var(--animation-ease-in-out)
+
+  &:hover
+    color: var(--color-link-hover)
+
+a.cta-button
+  background-color: var(--color-accent)
+  border-radius: var(--border-radius-sm)
+  color: var(--color-primary)
+  line-height: 1.15
+  padding: calc(var(--spacing-xs) * 1.5) var(--spacing-md)
+  text-align: center
+  text-decoration: none
+  transition: background-color var(--animation-ease-in-out)
+  width: 100%
+
+  &:hover
+    background-color: var(--color-accent-dark)
+
+  &.cta-button--dark
+    background-color: var(--color-accent-accessible)
+    color: var(--color-white)
+
+    &:hover
+      background-color: var(--color-accent-accessible-dark)
+
+img
+  display: block
+  height: auto
+  width: 100%
+
+.video__aspect-ratio
+  aspect-ratio: 16 / 9
+  width: 100%
+
+.content-container
+  display: grid
+  gap: var(--spacing-md)
+  padding-inline: var(--spacing-sm)
+  margin-inline: auto
+  max-width: var(--content-max-width)
+  width: 100%
+
+/* ====================================================================================
+ 2: Promotion Banner
+ =====================================================================================
+.promo-banner
+  background-color: var(--color-primary)
+  padding-block: var(--spacing-xs) var(--spacing-xxs)
+
+  .content-container
+    font-size: 0.75rem
+    justify-items: center
+
+  @media only screen and (min-width: 768px)
+    .content-container
+      justify-items: end
+
+/* ====================================================================================
+ 3: Primary nav
+
+ Columns: | nav-left | nav-right |
+ =====================================================================================
+nav
+  background-color: var(--color-primary)
+  padding-block: var(--spacing-xxs) var(--spacing-xs)
+  position: relative
+  top: 0
+  z-index: 100
+
+  .content-container
+    align-items: center
+    gap: var(--spacing-sm)
+    grid-auto-flow: row
+    justify-content: center
+
+    .nav-left
+
+      .nav-left__logo
+        height: 3.33rem
+
+    .nav-right
+
+      .nav-right__links
+        align-items: center
+        display: grid
+        gap: var(--spacing-xs)
+        text-align: center
+
+        a:not(.cta-button)
+          color: var(--color-link-nav)
+          display: block
+          padding: var(--spacing-sm)
+
+          &:hover
+            color: var(--color-link-nav-hover)
+
+        .cta-button
+          margin-top: var(--spacing-sm)
+
+  @media only screen and (min-width: 768px)
+    align-content: center
+    position: sticky
+
+    .content-container
+      grid-auto-flow: column
+      justify-content: space-between
+
+      .nav-right
+
+        .nav-right__links
+          gap: var(--spacing-sm)
+          grid-auto-flow: column
+
+          .cta-button
+            margin-top: 0
+
+/* ====================================================================================
+ 4: Hero
+
+ Columns: | logo | slogan |
+ =====================================================================================
+section.hero
+  background-color: var(--color-primary)
+  padding-block: var(--spacing-lg)
+  margin-top: -1px
+
+  .content-container
+
+    h1, p
+      color: var(--color-white)
+      text-align: center
+
+  &.homepage-hero
+    background-image: radial-gradient(closest-side, #003254, var(--color-primary))
+
+    .content-container
+      gap: var(--spacing-sm)
+
+      .logo-hammer
+        align-content: start
+        display: grid
+        gap: var(--spacing-sm)
+        justify-items: center
+
+        img
+          margin-inline: auto
+          max-width: 20rem
+
+        a
+          color: var(--color-accent)
+          padding: var(--spacing-sm) var(--spacing-md)
+
+          i
+            margin-right: var(--spacing-xxs)
+            transition: margin-right var(--animation-ease-out)
+
+          &:hover
+            color: var(--color-accent-light)
+
+            i
+              margin-right: 0
+
+      .slogan
+        container-type: inline-size
+        text-align: center
+
+        h1
+          span
+            color: #fff
+            display: block
+            line-height: 0.9
+            text-transform: uppercase
+
+          .first-line
+            font-size: clamp(3.5rem, 17cqi + 0.6rem, 10rem)
+
+          .second-line
+            color: var(--color-secondary)
+            font-size: clamp(1.91rem, 10.2cqi + 0.1rem, 4.1rem)
+
+          .third-line
+            font-size: clamp(3.17rem, 16cqi + 0.4rem, 6.7rem)
+
+    .homepage-hero__video-modal
+      background: transparent
+      border: none
+      position: relative
+      width: 100%
+      z-index: 500
+
+      &::backdrop
+        background: var(--color-modal-backdrop)
+
+      .homepage-hero__video-close-link
+        background: var(--color-secondary)
+        border-radius: 50%
+        color: var(--color-white)
+        cursor: pointer
+        display: grid
+        height: var(--spacing-md)
+        place-content: center
+        position: absolute
+        right: 0
+        top: 0
+        transition: transform var(--animation-ease-out)
+        width: var(--spacing-md)
+        z-index: 505
+
+        &:hover
+          transform: scale(0.8)
+
+      .homepage-hero__video-links
+        display: grid
+        gap: var(--spacing-sm)
+        margin-block: var(--spacing-sm)
+        place-content: stretch
+
+    @media only screen and (min-width: 768px)
+      .content-container
+        grid-template-columns: 1fr 2fr
+
+        .logo-hammer
+          order: -1
+
+        .slogan
+
+          h1
+            .first-line
+              font-size: clamp(4rem, 19cqi + 1rem, 10rem)
+
+            .second-line
+              font-size: clamp(3.21rem, 10cqi + 0.5rem, 4.83rem)
+
+            .third-line
+              font-size: clamp(5.4rem, 16.2cqi + 1rem, 10rem)
+
+      .homepage-hero__video-modal
+
+        .homepage-hero__video-links
+          grid-auto-flow: column
+          place-content: center
+
+/* ====================================================================================
+ 5: Home page CTA block
+ =====================================================================================
+section.cta-block
+  padding-block: var(--spacing-lg)
+
+  .content-container
+    container-type: inline-size
+    max-width: 20rem
+
+    .cta-block__lead-magnet
+      overflow: clip
+
+      .cta-block__lead-magnet-title
+        color: var(--color-primary)
+        font-size: clamp(0.5rem, 4cqi + 1rem, 2rem)
+        line-height: 1.15
+
+        .cta-block__lead-magnet-title-first-line
+          font-weight: 300
+          margin-top: 0
+
+        .cta-block__lead-magnet-title-second-line
+          font-weight: 700
+
+      .cta-block__cta-card
+        background-color: var(--color-primary)
+        border-radius: var(--border-radius)
+        height: 100cqi
+        margin-top: var(--spacing-sm)
+        padding-inline: var(--spacing-sm)
+
+        .cta-card__image
+          height: auto
+          width: 100%
+
+          img
+            filter: grayscale(1)
+            height: 100%
+            transform: scale(0.9)
+            transition: transform var(--animation-ease-out), filter var(--animation-ease-out)
+            width: 100%
+
+          &:hover
+            cursor: pointer
+
+            img
+              filter: grayscale(0)
+              transform: translateY(calc(-1 * var(--spacing-sm)))
+
+  @media only screen and (min-width: 768px)
+    .content-container
+      grid-template-columns: repeat(3, 1fr)
+      max-width: var(--content-max-width)
+
+      .cta-block__lead-magnet
+
+        .cta-block__lead-magnet-title
+          font-size: clamp(0.5rem, 3cqi + 0.1rem, 2rem)
+
+        .cta-block__cta-card
+          height: calc((100cqi - (var(--spacing-md) * 2)) / 3)
+
+//custom styling for home page version
+.cta-block.cta-block__home
+  background: var(--color-bg-light)
+
+  @media only screen and (min-width: 768px)
+    background: linear-gradient(180deg, var(--color-bg-light) 67%, var(--color-bg-lighter) 67%)
+
+//custom styling for why thorscore page (should only exist on temp site)
+.cta-block__whythorscore
+  background: var(--color-bg-light)
+
+/* ====================================================================================
+ 6: Content (2-column content, legal pages, misc pages)
+ =====================================================================================
+section.content
+  padding-block: calc(var(--spacing-md) + var(--spacing-lg)) var(--spacing-lg)
+
+//Intentionally made these styles global for the temp site
+//Legal pages
+strong
+  color: var(--color-primary)
+
+ol
+  counter-reset: item
+  list-style-type: none
+
+  & > li
+    display: block
+    padding-block: var(--spacing-xs)
+
+    &::before
+      color: var(--color-primary)
+      counter-increment: item
+      content: counters(item, '.', decimal) ' '
+      font-weight: 800
+
+    & > strong + p
+      margin-top: 0
+
+    ul
+      list-style-type: disc
+      margin-top: calc(-1 * var(--spacing-sm))
+
+  &.non-counter-list
+    li::before
+      color: var(--color-font-paragraph)
+      content: counter(item) '.'
+      font-weight: 400
+
+//Two column layout  
+.two-col
+  display: grid
+  gap: var(--spacing-md)
+  justify-items: center
+
+  .img-col
+    max-width: 20rem
+    padding-inline: var(--spacing-md) 0
+    position: relative
+
+    img
+      border-radius: var(--border-radius)
+
+    &::before
+      background: var(--color-primary)
+      border-radius: var(--border-radius)
+      bottom: var(--spacing-md)
+      content: ''
+      position: absolute
+      left: 0
+      right: calc(1 * var(--spacing-md))
+      top: calc(-1 * var(--spacing-md))
+      z-index: -1
+
+  .content-col
+    h1, h2, h3, h4, h5
+      text-align: center
+
+  &:not(div:last-of-type)
+    margin-bottom: var(--spacing-md)
+
+  @media only screen and (min-width: 768px)
+    grid-template-columns: 1fr 2fr
+
+    .img-col
+      padding-inline: var(--spacing-md)
+      max-width: none
+
+      &::before
+        bottom: var(--spacing-md)
+        left: 0
+        right: var(--spacing-lg)
+        top: calc(-1 * var(--spacing-md))
+
+    .content-col
+      h1, h2, h3, h4, h5
+        text-align: left
+
+    &.split-evenly
+      grid-template-columns: 1fr 1fr
+    &.order-reverse
+      grid-template-columns: 2fr 1fr
+
+      .img-col
+        &::before
+          left: var(--spacing-lg)
+          right: 0
+
+      .content-col
+        order: -1
+
+/* ====================================================================================
+ 7: About us
+ =====================================================================================
+.about
+  background-color: var(--color-primary)
+  padding-block: var(--spacing-lg)
+
+  h1, h2, h3,h4,h5
+    color: var(--color-white)
+
+  p
+    color: var(--color-white)
+
+  @media only screen and (min-width: 768px)
+
+/* ====================================================================================
+ 8: Footer 
+ =====================================================================================
+footer
+  border-top: 1px solid var(--color-bg-medium)
+  padding-block: var(--spacing-md)
+
+  .content-container
+    align-items: center
+    gap: var(--spacing-md)
+    grid-auto-flow: row
+    justify-content: center
+
+    .footer-left
+
+      .footer-left__logo
+        height: 3.33rem
+
+    .footer-right
+
+      .footer-right__nav-links
+        align-items: center
+        display: grid
+        gap: var(--spacing-xs)
+        text-align: center
+
+        a:not(.cta-button)
+          color: var(--color-primary)
+          display: block
+          padding: var(--spacing-xs)
+
+          &:hover
+            color: var(--color-primary-light)
+
+        .cta-button
+          margin-top: var(--spacing-sm)
+
+  @media only screen and (min-width: 768px)
+    align-content: center
+
+    .content-container
+      grid-auto-flow: column
+      justify-content: space-between
+
+      .footer-right
+
+        .footer-right__nav-links
+          gap: var(--spacing-sm)
+          grid-auto-flow: column
+
+          .cta-button
+            margin-top: 0
+
+/* ====================================================================================
+ 9: Legal sub-footer
+
+ Font scaled to 0.75rem in section.legal
+ =====================================================================================
+section.legal
+  background-color: var(--color-bg-light)
+  font-size: 0.75rem
+  padding-block: var(--spacing-sm)
+
+  .content-container
+    gap: var(--spacing-sm)
+    justify-items: center
+
+    .legal__links
+      display: grid
+      gap: var(--spacing-sm)
+      grid-auto-flow: column
+
+      a:not(.cta-button)
+        color: var(--color-primary)
+        padding-inline: var(--spacing-xs)
+
+        &:hover
+          color: var(--color-primary-light)
+
+    p
+      margin: 0
+
+  @media only screen and (min-width: 768px)
+    .content-container
+      grid-auto-flow: column
+      justify-content: center
+
+      .legal__links
+        order: 1
